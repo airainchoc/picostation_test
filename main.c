@@ -73,7 +73,7 @@ void i2s_data_thread() {
     pSD = sd_get_by_num(0);
     fr = f_mount(&pSD->fatfs, pSD->pcName, 1);
     if (FR_OK != fr) panic("f_mount error: %s (%d)\n", FRESULT_str(fr), fr);
-    fr = f_open(&fil, "STREET MUSIC.cue", FA_READ);
+    fr = f_open(&fil, "IMG.cue", FA_READ);
     if (FR_OK != fr && FR_EXIST != fr)
         panic("f_open(%s) error: (%d)\n", FRESULT_str(fr), fr);
 
@@ -127,7 +127,7 @@ void i2s_data_thread() {
     }
 
     f_close(&fil);
-    fr = f_open(&fil, "STREET MUSIC.bin", FA_READ);
+    fr = f_open(&fil, "IMG.bin", FA_READ);
     if (FR_OK != fr && FR_EXIST != fr)
         panic("f_open(%s) error: (%d)\n", FRESULT_str(fr), fr);
 
